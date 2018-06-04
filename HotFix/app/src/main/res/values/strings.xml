@@ -1,0 +1,7 @@
+<resources>
+<<<<<<< HEAD
+    <string name="app_name">Demo4</string>
+=======
+    <string name="app_name">HotFix</string>
+>>>>>>> hotfix
+</resources>
