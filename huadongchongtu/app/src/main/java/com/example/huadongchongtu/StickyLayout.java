@@ -34,7 +34,6 @@ public class StickyLayout extends LinearLayout{
     public static  final int STATUS_COLLAPSED = 2;
     private int mStatus = STATUS_EXPANDED;
 
-
     //Header的高度 单位: px
     private int mHeaderHeight;
     private int mOriginalHeaderHeight;
@@ -73,7 +72,7 @@ public class StickyLayout extends LinearLayout{
             if(mHeaderHeight >0){
                 mInitDataSucceed = true;
             }
-            Log.i("init","mTouchTop = "+mTouchSlop +"mHeaderHeight = "+mHeaderHeight);
+            Log.i("init","mTouchTop = "+mTouchSlop +" mHeaderHeight = "+mHeaderHeight);
         }else{
             throw new NoSuchElementException("Did your view with \"sticky_header\" or \"sticky_content\" exists");
         }
@@ -88,6 +87,7 @@ public class StickyLayout extends LinearLayout{
 
         switch(ev.getAction()){
             case MotionEvent.ACTION_DOWN:
+                Log.i("onInterceptTouchEvent","down");
                 mLastInterceptX = x;
                 mLastInterceptY = y;
                 mLastX = x;
@@ -111,15 +111,16 @@ public class StickyLayout extends LinearLayout{
                 }
                 break;
             case MotionEvent.ACTION_UP:
+                Log.i("onInterceptTouchEvent","up");
                 intercepted = 0;
                 mLastInterceptX = mLastInterceptY = 0;
                 break;
             default:
                 break;
         }
+        Log.i("onInterceptTouchEvent","是否拦截？"+intercepted);
         return intercepted != 0 && mIsSticky;
     }
-
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -130,22 +131,21 @@ public class StickyLayout extends LinearLayout{
         int y = (int) event.getY();
         switch(event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Log.i("down","拦截");
+                Log.i("onTouchEvent","down");
                 break;
             case MotionEvent.ACTION_MOVE:
                 Log.i("onTouchEvent","move");
                 int deltaX = x - mLastX;
                 int deltaY = y - mLastY;
 
-                Log.i("tag", "mHeaderHeight=" + mHeaderHeight + "deltaY=" + deltaY);
+                Log.i("tag", "mHeaderHeight=" + mHeaderHeight + " deltaY=" + deltaY);
                 mHeaderHeight += deltaY;
-
+                setHeaderHeight(mHeaderHeight);
 //                LayoutParams layoutParams = new LayoutParams(mHeader.getLayoutParams().width,mHeaderHeight);
 //                mHeader.setLayoutParams(layoutParams);
-                setHeaderHeight(mHeaderHeight);
                 break;
             case MotionEvent.ACTION_UP:
-                Log.i("up","拦截");
+                Log.i("onTouchEvent","up");
                 int destHeight = 0;
                 if (mHeaderHeight <= mOriginalHeaderHeight * 0.5) {
                     destHeight = 0;
@@ -232,24 +232,22 @@ public class StickyLayout extends LinearLayout{
         if (!mInitDataSucceed) {
             initData( );
         }
-            if (height <= 0) {
-                height = 0;
-            } else if (height > mOriginalHeaderHeight) {
-                height = mOriginalHeaderHeight;
-            }
-            if (height == 0) {
-                mStatus = STATUS_COLLAPSED;
-            } else {
-                mStatus = STATUS_EXPANDED;
-            }
-            if (mHeader != null && mHeader.getLayoutParams() != null) {
-                mHeader.getLayoutParams().height = height;
-                mHeaderHeight = height;
-                mHeader.scrollTo(mHeader.getLayoutParams().width ,mHeader.getLayoutParams().height );
-                mHeader.requestLayout();
-            }
-            Log.i("height","---------------height-------------"+mHeader.getLayoutParams().height);
-
+        if (height <= 0) {
+            height = 0;
+        }else if (height > mOriginalHeaderHeight) {
+            height = mOriginalHeaderHeight;
+        }
+        if (height == 0) {
+            mStatus = STATUS_COLLAPSED;
+        } else {
+            mStatus = STATUS_EXPANDED;
+        }
+        if (mHeader != null && mHeader.getLayoutParams() != null) {
+            mHeader.getLayoutParams().height = height;
+            mHeaderHeight = height;
+            mHeader.requestLayout();
+        }
+        //Log.i("height","---------------height-------------"+mHeader.getLayoutParams().height);
     }
     public int getHeaderHeight() {
         return mHeaderHeight;
