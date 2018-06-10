@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.MainActivity">
+
+    <TextView
+        android:id="@+id/user_gd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用户名："
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#000" />
+    <EditText
+        android:id="@+id/user"
+        android:layout_toRightOf="@id/user_gd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#959595"
+        android:layout_marginRight ="10dp"
+        android:hint="请输入用户名" />
+
+    <TextView
+        android:id="@+id/mima_gd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user"
+        android:text="密码："
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#000" />
+
+    <EditText
+        android:id="@+id/mima"
+        android:layout_below="@id/user"
+        android:layout_toRightOf="@id/mima_gd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#959595"
+        android:layout_marginRight ="10dp"
+        android:hint="请输入密码" />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="LOGIN"
+        android:layout_margin="10dp"
+        android:layout_below="@id/mima"/>
+
+</RelativeLayout>

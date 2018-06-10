@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fae69e"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Score:"
+            android:textColor="#000"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/scoreTxt"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="24sp"
+            android:textColor="#e52e2e"/>
+
+        <TextView
+            android:id="@+id/reStartTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="重新开始"
+            android:gravity="right"
+            android:textSize="24sp"
+            android:textColor="#8c7c7c"
+            />
+
+    </LinearLayout>
+
+
+    <GridLayout
+        android:id="@+id/gridlayout"
+        android:rowCount="4"
+        android:columnCount="4"
+        android:layout_margin="10dp"
+        android:background="#a9915a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </GridLayout>
+
+</LinearLayout>
