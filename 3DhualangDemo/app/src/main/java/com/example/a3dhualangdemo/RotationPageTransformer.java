@@ -5,8 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.RotateAnimation;
 
 public class RotationPageTransformer implements ViewPager.PageTransformer {
 
@@ -14,30 +12,31 @@ public class RotationPageTransformer implements ViewPager.PageTransformer {
 
     @Override
     public void transformPage(@NonNull View page, float position) {
-        float scaleFactor = Math.max(MIN_SCALE ,1 -Math.abs(position));
+        float scaleFactor = Math.max(MIN_SCALE ,1-Math.abs(position));
         float rotate = 10 *  Math.abs(position);
+        Log.i("transformPage",scaleFactor +" "+rotate);
 
-        //我呢提记录： setRotation 图片 消失了
+        //记录： setRotation 图片 消失了
         Log.i("position",position+"");
         Log.i("rotate",""+rotate);
         if(position <= -1){
-            page.setAlpha(1);
+            page.setAlpha(0);
             page.setScaleX(MIN_SCALE);
             page.setScaleY(MIN_SCALE);
-           // page.setRotation(rotate);
+            page.setRotationY(45) ;
         }else if(position < 0){
             page.setAlpha(1);
             page.setScaleX(scaleFactor);
             page.setScaleY(scaleFactor);
-           // page.setRotationY(rotate);
+            page.setRotationY(45);
         }else if(position < 1){
             page.setScaleX(scaleFactor);
             page.setScaleY(scaleFactor);
-           // page.setRotationY(-rotate);
+            page.setRotationY(-rotate);
         }else if(position >= 1){
             page.setScaleX(scaleFactor);
             page.setScaleY(scaleFactor);
-           // page.setRotationY(-rotate) ;
+            page.setRotationY(-rotate) ;
         }
     }
 

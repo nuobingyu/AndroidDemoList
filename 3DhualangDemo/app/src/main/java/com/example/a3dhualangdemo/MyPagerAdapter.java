@@ -1,5 +1,6 @@
 package com.example.a3dhualangdemo;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
@@ -36,6 +37,10 @@ public class MyPagerAdapter extends PagerAdapter{
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_viewpager,container,false);
         ImageView img = view.findViewById(R.id.item_iv);
         img.setImageResource(mBitmapIds[position]);
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(img ,"rotationY",0,180);
+        objectAnimator.setRepeatCount(ObjectAnimator.INFINITE );
+        objectAnimator.setDuration(1000);
+        objectAnimator.start();
         container.addView(view);
 
         return view;

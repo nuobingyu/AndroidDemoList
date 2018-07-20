@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
+    android:gravity="center"
+    android:layerType="software"
     tools:context=".MainActivity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
-        android:layout_width="240dp"
-        android:layout_height="match_parent"
+        android:layout_width="200dp"
+        android:layout_height="340dp"
         android:clipChildren="false"
         android:background="#d9fbf8"
         android:layout_centerInParent="true"/>
