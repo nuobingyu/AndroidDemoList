@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ZuJianHuaDemo.iml" filepath="$PROJECT_DIR$/ZuJianHuaDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appke/appke.iml" filepath="$PROJECT_DIR$/appke/appke.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_1/module_1.iml" filepath="$PROJECT_DIR$/module_1/module_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_2/module_2.iml" filepath="$PROJECT_DIR$/module_2/module_2.iml" />
+    </modules>
+  </component>
+</project>
