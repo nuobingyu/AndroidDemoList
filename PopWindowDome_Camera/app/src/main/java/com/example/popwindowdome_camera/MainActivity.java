@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     cSelectPicPopupWindow.showAsDropDown(tv,0,0,Gravity.CENTER);
                 }
-
             }
         });
     }
